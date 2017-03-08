@@ -1,23 +1,21 @@
 <!doctype html>
 <html>
 <head>
-    <meta charset="utf-8">
-    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>{{ .Title }}</title>
-    {{ partial "styles.html" . }}
-    {{ partial "js.html" . }}
-    {{ partial "hook_head_end.html" . }}
+    {{ partial "header.html" . }}
 </head>
 <body class="index" data-languages="{{ with .Site.Params.language_tabs  }}[{{ range $i,$e := . }}{{- if $i -}}, {{ end -}}{{ printf " %q " $e.key }}{{end}}]{{ end }}">
     <a href="#" id="nav-button">
         <span>
         NAV
-        <img src='{{ relURL "slate/images/navbar.png" }}'/>
+        <img src='{{ relURL "images/material-icons/navbar.png" }}'/>
       </span>
     </a>
     <div class="tocify-wrapper">
-        <img src='{{ relURL "images/logo.png" }}' />
+        <a href="https://pupil-labs.com">
+            <div align="center">
+                <img class="logo" src='{{ relURL "images/logo/logo.png" }}' />
+            </div>
+        </a>
         {{ with .Site.Params.language_tabs }}
         <div class="lang-selector">
             {{ range . }}
@@ -27,7 +25,7 @@
         {{ end }} 
         {{ if .Site.Params.search }}
         <div class="search">
-            <input type="text" class="search" id="input-search" placeholder='{{ T "search" . }}'>
+            <input type="text" class="search" id="input-search" placeholder="search">
         </div>
         <ul class="search-results"></ul>
         {{ end }}
@@ -49,7 +47,7 @@
     </div>
     <div class="page-wrapper">
         <div class="dark-box"></div>
-        <div class="content">
+        <div class="content site-content-container">
             {{block "main" .}}This is the main content.{{end}}
         </div>
         <div class="dark-box">
@@ -62,6 +60,6 @@
             {{ end }}
         </div>
     </div>
-    {{ partial "hook_body_end.html" . }}
+    {{ partial "footer.html" . }}
 </body>
 </html>
