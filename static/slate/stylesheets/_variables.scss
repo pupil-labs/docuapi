@@ -23,27 +23,28 @@ under the License.
 
 // BACKGROUND COLORS
 ////////////////////
-$nav-bg: #393939 !default;
-$examples-bg: #393939 !default;
+$nav-bg: #f5f5f5 !default;
+$examples-bg: #f1f1f1 !default;
 $code-bg: #292929 !default;
 $code-annotation-bg: #1c1c1c !default;
-$nav-subitem-bg: #262626 !default;
-$nav-active-bg: #2467af !default;
+$nav-subitem-bg: #ccc !default;
+$nav-active-bg: #666 !default;
 $lang-select-border: #000 !default;
 $lang-select-bg: #222 !default;
 $lang-select-active-bg: $examples-bg !default; // feel free to change this to blue or something
 $lang-select-pressed-bg: #111 !default; // color of language tab bg when mouse is pressed
-$main-bg: #eaf2f6 !default;
+$main-bg: #ffffff !default;
 $aside-notice-bg: #8fbcd4 !default;
 $aside-warning-bg: #c97a7e !default;
 $aside-success-bg: #6ac174 !default;
 $search-notice-bg: #c97a7e !default;
+$search-bg: #ccc !default;
 
 
 // TEXT COLORS
 ////////////////////
 $main-text: #333 !default; // main content text color
-$nav-text: #fff !default;
+$nav-text: #666 !default;
 $nav-active-text: #fff !default;
 $lang-select-text: #fff !default; // color of unselected language tab text
 $lang-select-active-text: #fff !default; // color of selected language tab text
@@ -61,19 +62,20 @@ $nav-v-padding: 10px !default; // padding used vertically around search boxes an
 $nav-indent: 10px !default; // extra padding for ToC subitems
 $code-annotation-padding: 13px !default; // padding inside code annotations
 $h1-margin-bottom: 21px !default; // padding under the largest header tags
-$tablet-width: 930px !default; // min width before reverting to tablet size
-$phone-width: $tablet-width - $nav-width !default; // min width before reverting to mobile size
+$phone-width: 767px !default; // min width before reverting to tablet size
+$laptop-width: 1024px !default; // min width before reverting to mobile size
+
 
 
 // FONTS
 ////////////////////
 %default-font {
-  font-family: "Helvetica Neue", Helvetica, Arial, "Microsoft Yahei","微软雅黑", STXihei, "华文细黑", sans-serif;
-  font-size: 13px;
+  font-family: "AtlasGroteskRegular", Helvetica, Arial, sans-serif;
+  font-size: 14px;
 }
 
 %header-font {
-  @extend %default-font;
+  font-family: "Regular", Helvetica, Arial, sans-serif;
   font-weight: bold;
 }
 
@@ -84,6 +86,14 @@ $phone-width: $tablet-width - $nav-width !default; // min width before reverting
 }
 
 
+// FONT-SIZES
+////////////////////
+$h1-size: 2.4em !default;
+$h2-size: 2em !default;
+$h3-size: 1.6em !default;
+$h4-size: 1.2em !default;
+$h5-size: 1em !default;
+
 // OTHER
 ////////////////////
 $nav-active-shadow: #000 !default;
@@ -93,6 +103,7 @@ $nav-embossed-border-bottom: #939393 !default;
 $main-embossed-text-shadow: 0px 1px 0px #fff !default;
 $search-box-border-color: #666 !default;
 
+$header-height: 50px;
 
 ////////////////////////////////////////////////////////////////////////////////
 // INTERNAL

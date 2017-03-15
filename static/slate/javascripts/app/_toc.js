@@ -12,15 +12,15 @@
 
   var makeToc = function() {
     global.toc = $("#toc").tocify({
-      selectors: 'h1, h2',
+      selectors: 'h1, h2, h3',
       extendPage: false,
       theme: 'none',
       smoothScroll: false,
       showEffectSpeed: 0,
       hideEffectSpeed: 180,
       ignoreSelector: '.toc-ignore',
-      highlightOffset: 60,
-      scrollTo: -1,
+      highlightOffset: 90,
+      scrollTo: 50,
       scrollHistory: true,
       hashGenerator: function (text, element) {
         return element.prop('id');
@@ -30,6 +30,12 @@
     $("#nav-button").click(function() {
       $(".tocify-wrapper").toggleClass('open');
       $("#nav-button").toggleClass('open');
+      return false;
+    });
+
+    $("#menu-button").click(function() {
+      $(".tocify-wrapper").toggleClass('open');
+      $("#menu-button").toggleClass('open');
       return false;
     });
 
