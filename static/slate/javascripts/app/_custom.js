@@ -1,13 +1,15 @@
-(function (global) {
-  'use strict';
-  $( document ).ready(function() {
+$(document).ready(function() {
 
-
-    $("h1, h2, h3").click( function() {
-      event.preventDefault();
-      console.log($(this).attr('id'));
-      window.location.hash = "#" + $(this).attr('id');
-    });
+  $("h1, h2, h3").click( function() {
+    event.preventDefault();
+    window.location.hash = "#" + $(this).attr('id');
   });
 
-})(window);
+  $("select").change(function() {
+    var value = $(this).val();
+    var cannonical_url = "http://docs.pupil-labs.com/";
+    console.log("selected "+value);
+    window.location.href = cannonical_url+value;
+  });
+
+});

@@ -24,19 +24,15 @@
             {{ end }}
             <div id="toc">
             </div>
-            {{ if .IsTranslated }}
+            {{ if .Site.IsMultiLingual }}
             <div class="toc-footer">
-                <h3 class="translations-title">{{ T "translations" (len .Translations ) }}</h3> 
-                {{ partial "translations.html" . }}
+                <select id="select-version">
+                    {{ range .Site.Languages }}
+                    <option value="{{ .Lang }}">test</option>
+                    {{ end }}
+                </select>
+            {{ end }}
             </div>
-            {{ end }} 
-            {{ with .Site.Params.toc_footers }}
-            <ul class="toc-footer">
-                {{ range . }}
-                <li>{{ . | markdownify }}</li>
-                {{ end}}
-            </ul>
-            {{ end}}
         </div>
     </div>
     <main>
