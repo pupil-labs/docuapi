@@ -398,10 +398,10 @@ html, body {
   h2 {
     @extend %header-font;
     font-size: $h2-size;
-    // margin-top: 1em;
-    margin-bottom: 1em;
+    margin-top: 0em;
+    margin-bottom: 0em;
     // border-top: 1px solid #ccc;
-    padding-top: 1em; 
+    padding-top: 1.4em; 
     padding-bottom: 1em;
     // background-image: linear-gradient(to bottom, rgba(#fff, 0.4), rgba(#fff, 0));
   }
@@ -409,10 +409,10 @@ html, body {
   h3 {
     @extend %header-font;
     font-size: $h3-size;
-    margin-top: 2em;
-    margin-bottom: .5em;
+    margin-top: 0;
+    margin-bottom: 0;
     padding-top: 1.2em;
-    padding-bottom: .5em;
+    padding-bottom: .7em;
   }
 
   // h2s right after h1s should bump right up
