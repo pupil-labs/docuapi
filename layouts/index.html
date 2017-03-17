@@ -1,5 +1,7 @@
 {{define "main"}}
-    {{ range .Data.Pages }}
-        {{ .Content }}
+	{{ range $elem := .Data.Pages.GroupByParam "section_weight" }}
+    	{{ range $pw := ($elem.Pages.ByParam "page_weight") }}
+    		{{ .Content }}
+    	{{ end }}
     {{ end }}
 {{end}}
