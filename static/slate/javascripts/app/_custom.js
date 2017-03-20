@@ -8,7 +8,6 @@ $(document).ready(function() {
   $("select").change(function() {
     var value = $(this).val();
     var cannonical_url = "http://docs.pupil-labs.com/";
-    console.log("selected "+value);
     window.location.href = cannonical_url+value;
   });
 
