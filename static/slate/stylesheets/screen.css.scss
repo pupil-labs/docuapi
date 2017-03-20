@@ -192,6 +192,7 @@ html, body {
   // Subheaders are the submenus that slide open
   // in the table of contents.
   .tocify-subheader {
+    display: none;
     background-color: $nav-subheader-bg;
     font-size: 12px;
     font-weight: 400;
