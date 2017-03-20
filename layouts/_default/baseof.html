@@ -26,9 +26,10 @@
             </div>
             {{ if .Site.IsMultiLingual }}
             <div class="toc-footer">
-                <select id="select-version">
+                <label for="version-selector">Version: </label>
+                <select name="version-selector" id="select-version">
                     {{ range .Site.Languages }}
-                    <option value="{{ .Lang }}">test</option>
+                    <option value="{{ .Lang }}">{{ .Title }}</option>
                     {{ end }}
                 </select>
             {{ end }}
