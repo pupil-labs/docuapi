@@ -188,6 +188,14 @@
   }
 }
 
+.feature-video-container {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 56.25%;
+  margin-bottom: 2em;
+}
+
 .video-container {
   position: relative;
   width: 100%;
@@ -206,6 +214,11 @@
 
 .content-container {
   margin-right: 50%;
+  padding: 0 1.2em;
+}
+
+.feature-content-container {
+  margin-right: 0;
   padding: 0 1.2em;
 }
 
