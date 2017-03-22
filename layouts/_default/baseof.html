@@ -28,8 +28,12 @@
             <div class="toc-footer">
                 <label for="version-selector">Version: </label>
                 <select name="version-selector" id="select-version">
-                    {{ range .Site.Languages }}
-                    <option value="{{ .Lang }}">{{ .Lang }}</option>
+                    {{ range $i, $elem := .Site.Languages }}
+                        {{ if eq $elem.Weight 1 }}
+                            <option value="">{{ $elem.Lang }}</option>
+                        {{ else }}
+                            <option value="{{ $elem.Lang }}">{{ $elem.Lang }}</option>                            
+                        {{ end }}
                     {{ end }}
                 </select>
             {{ end }}
