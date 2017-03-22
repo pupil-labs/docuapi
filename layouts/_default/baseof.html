@@ -27,7 +27,7 @@
             {{ if .Site.IsMultiLingual }}
             <div class="toc-footer">
                 <label for="version-selector">Version: </label>
-                <select name="version-selector" id="select-version">
+                <select name="version-selector" id="version-selector">
                     {{ range $i, $elem := .Site.Languages }}
                         {{ if eq $elem.Weight 1 }}
                             <option value="">{{ $elem.Lang }}</option>
