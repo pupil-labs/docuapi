@@ -43,3 +43,21 @@
     text-decoration: none;
   }
 }
+
+
+h2,h3 {
+  .anchor {
+  color: lightgray; 
+  padding: 0em 0.5em;
+  font-size: 28px;
+ }
+}
+
+
+h1 {
+  .anchor {
+  color: #868686; 
+  padding: 0em 0.5em;
+  font-size: 30px;
+  }
+}
