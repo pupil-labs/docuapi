@@ -54,7 +54,8 @@
   $(function() {
     makeToc();
     animate();
-    setupLanguages($('body').data('languages'));
+    // languages not currently in use - omit
+    // setupLanguages($('body').data('languages'));
     $('.content').imagesLoaded( function() {
       global.toc.calculateHeights();
     });

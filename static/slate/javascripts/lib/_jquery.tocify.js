@@ -415,6 +415,16 @@
 
             }));
 
+            self.append($("<a/>", {
+                "name": hashValue,
+
+                "class": "anchor",
+
+                "href": "#"+hashValue,
+
+                "text": "#"
+            }));
+
             return item;
 
         },
