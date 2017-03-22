@@ -1,0 +1,5 @@
+<div class="feature-content-container">
+	<div class="feature-video-container" >
+		<iframe class="feature-video" src="{{ with .Get "embed-url" }}{{ . }}{{ if in . "?" }}&rel=0{{ else }}?rel=0{{ end }}{{ end }}" frameborder="0" allowfullscreen></iframe>
+	</div>
+</div>
