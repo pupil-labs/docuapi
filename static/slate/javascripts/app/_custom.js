@@ -12,7 +12,6 @@ $(document).ready(function() {
     var value = $(this).val();
     var cannonical_url = "http://docs.pupil-labs.com/";
     var hash = window.location.hash;
-    console.log("clicked selector with value: "+ value);
     window.location.href = cannonical_url+value+hash;
   });
 
