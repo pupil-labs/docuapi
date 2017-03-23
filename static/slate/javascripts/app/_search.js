@@ -52,7 +52,9 @@
         searchResults.empty();
         $.each(results, function (index, result) {
           var elem = document.getElementById(result.ref);
-          searchResults.append("<li><a href='#" + result.ref + "'>" + $(elem).text() + "</a></li>");
+          // remove the trailing # that we have added
+          var txt = $(elem).text().slice(0,-1)
+          searchResults.append("<li><a href='#" + result.ref + "'>" + txt + "</a></li>");
         });
         highlight.call(this);
       } else {
