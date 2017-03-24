@@ -3,11 +3,11 @@ $(document).ready(function() {
   // on document load - version selector should show current version
   $("#version-selector").val(window.location.pathname.replace(/\//g,''));
 
-  // $("h1, h2, h3").click( function() {
-  //   event.preventDefault();
-  //   // replaceState(sateObj, title, url)
-  //   history.replaceState(null, null, "#" + $(this).attr("id"));
-  // });
+  $('.github-link').each(function() {
+      // console.log($(this).data() + $(this).nextAll(':header').filter(':first').text());
+      $(this).append("<a href='"+$(this).data('github')+"' rel='noopener'>Edit `"+$(this).data('file')+"` on Github</a>");
+      $(this).insertAfter($(this).nextAll(':header').filter(':first'));
+  });
 
   $(".anchor").click( function() {
   	event.preventDefault();

@@ -368,6 +368,11 @@ html, body {
     @extend %left-col;
   }
 
+  .github-link {
+    padding: $main-padding;
+    clear: both;
+  }
+
   &>ul, &>ol {
     padding-left: $main-padding + 15px;
   }
@@ -383,7 +388,7 @@ html, body {
     padding-top: 0.5em;
     padding-bottom: 0.5em;
     // border-bottom: 1px solid #ccc;
-    margin-bottom: $h1-margin-bottom;
+    // margin-bottom: $h1-margin-bottom;
     // margin-top: 2em;
     color: #ccc;
     background: #444;
