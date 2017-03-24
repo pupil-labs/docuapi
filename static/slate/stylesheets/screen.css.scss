@@ -604,6 +604,17 @@ html, body {
       // border-top: 1px solid #000;
       // border-bottom: 1px solid #404040;
     }
+    &>figure {
+      margin: 0;
+      padding: 10px 13px 10px;
+    }
+  }
+
+  table {
+    figure {
+      margin: 0;
+      padding: 10px 13px 10px;
+    }
   }
 }
 
@@ -667,6 +678,9 @@ html, body {
       padding-top: 4.5em;
     }
   }
+  .feature-full {
+    width: 100%
+  }
 }
 
 @media (max-width: $laptop-width) {
@@ -694,6 +708,11 @@ html, body {
   %right-col + %left-col {
     margin-top: $main-padding;
   }
+
+  figure {
+    margin: 0;
+    padding: 0 24px 20px 24px;
+  }
 }
 
 .highlight .c, .highlight .cm, .highlight .c1, .highlight .cs {
@@ -703,3 +722,4 @@ html, body {
 .highlight, .highlight .w {
   background-color: $code-bg;
 }
+

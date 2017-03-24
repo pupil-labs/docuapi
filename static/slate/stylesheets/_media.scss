@@ -215,6 +215,13 @@
 .content-container {
   margin-right: 50%;
   padding: 0 1.2em;
+
+  .Grid-cell {
+    figure {
+      margin: 0;
+      padding: 0;
+    }
+  }
 }
 
 .feature-content-container {
@@ -226,4 +233,9 @@
   .content-container {
     margin-right: 0;
   }
+}
+
+.feature-center {
+  display: block;
+  margin: auto;
 }
