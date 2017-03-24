@@ -708,3 +708,11 @@ html, body {
 .highlight, .highlight .w {
   background-color: $code-bg;
 }
+
+@media (max-width: 768px) {
+  h1, h2, h3 {
+    .anchor {
+    opacity: 1;
+    }
+  }
+}
