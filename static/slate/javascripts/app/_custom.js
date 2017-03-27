@@ -22,4 +22,8 @@ $(document).ready(function() {
     window.location.href = cannonical_url+value+hash;
   });
 
+  $("h1").each(function() {
+    $(this).append("<img src='/images/material-icons/edit_white_24px.svg' class='edit-link' >");
+  });
+
 });
