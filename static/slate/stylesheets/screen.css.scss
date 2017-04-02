@@ -733,6 +733,15 @@ html, body {
     margin: 0;
     padding: 0 24px 20px 24px;
   }
+
+  .lazy-img {
+
+    &.ratio--200-200 {
+      width: 150px;
+      padding-bottom: 150px;
+    }
+
+  }
 }
 
 .highlight .c, .highlight .cm, .highlight .c1, .highlight .cs {

@@ -4,140 +4,205 @@
   display: block;
 }
 
-
 // containers
 .lazy-img {
   margin: auto;
+  overflow: hidden;
+
 
   &.ratio--35-35 {
     width: 35%;
     padding-bottom: 35%;
   }
 
+  &.ratio--60-53 {
+    width: 60%;
+    padding-bottom: 53%;
+  }
+
   &.ratio--65-65 {
     width: 65%;
-    padding-bottom: 65%;    
+    padding-bottom: 65%;
   }
 
   &.ratio--85-85 {
     width: 85%;
-    padding-bottom: 85%;    
+    padding-bottom: 85%;
   }
 
   &.ratio--70-32 {
     width: 70%;
-    padding-bottom: 32%;    
+    padding-bottom: 32%;
   }
 
   &.ratio--70-40 {
     width: 70%;
-    padding-bottom: 40%;    
+    padding-bottom: 40%;
   }
 
   &.ratio--70-58 {
     width: 70%;
-    padding-bottom: 58%;    
+    padding-bottom: 58%;
   }
 
   &.ratio--70-65 {
     width: 70%;
-    padding-bottom: 65%;    
+    padding-bottom: 65%;
   }
 
   &.ratio--90-50 {
     width: 90%;
-    padding-bottom: 50%;    
+    padding-bottom: 50%;
   }
 
   &.ratio--90-75 {
     width: 90%;
-    padding-bottom: 75%;    
+    padding-bottom: 75%;
+  }
+
+  &.ratio--90-80 {
+    width: 90%;
+    padding-bottom: 80%;
   }
 
   &.ratio--90-95 {
     width: 90%;
-    padding-bottom: 95%;    
+    padding-bottom: 95%;
   }
 
   &.ratio--90-112 {
     width: 90%;
-    padding-bottom: 112%;    
+    padding-bottom: 112%;
   }
 
   &.ratio--100-36 {
     width: 100%;
-    padding-bottom: 36%;    
+    padding-bottom: 36%;
   }
 
   &.ratio--100-40 {
     width: 100%;
-    padding-bottom: 40%;    
+    padding-bottom: 40%;
   }
 
   &.ratio--100-58 {
     width: 100%;
-    padding-bottom: 58%;    
+    padding-bottom: 58%;
   }
 
   &.ratio--100-65 {
     width: 100%;
-    padding-bottom: 65%;    
+    padding-bottom: 65%;
   }
 
   &.ratio--100-80 {
     width: 100%;
-    padding-bottom: 80%;    
+    padding-bottom: 80%;
   }
 
   &.ratio--100-100 {
     width: 100%;
-    padding-bottom: 100%;    
+    padding-bottom: 100%;
   }
+
+  // ratio in px
+
+  &.ratio--200-200 {
+    width: 200px;
+    padding-bottom: 200px;
+  }
+
+  // &.ratio--60-53 {
+  //   width: 60%;
+  //   padding-bottom: 53%;
+  // }
+
+  // &.ratio--65-65 {
+  //   width: 65%;
+  //   padding-bottom: 65%;
+  // }
+
+  // &.ratio--85-85 {
+  //   width: 85%;
+  //   padding-bottom: 85%;
+  // }
+
+  // &.ratio--70-32 {
+  //   width: 70%;
+  //   padding-bottom: 32%;
+  // }
+
+  // &.ratio--70-40 {
+  //   width: 70%;
+  //   padding-bottom: 40%;
+  // }
+
+  // &.ratio--70-58 {
+  //   width: 70%;
+  //   padding-bottom: 58%;
+  // }
+
+  // &.ratio--70-65 {
+  //   width: 70%;
+  //   padding-bottom: 65%;
+  // }
+
+  // &.ratio--90-50 {
+  //   width: 90%;
+  //   padding-bottom: 50%;
+  // }
+
+  // &.ratio--90-75 {
+  //   width: 90%;
+  //   padding-bottom: 75%;
+  // }
+
+  // &.ratio--90-80 {
+  //   width: 90%;
+  //   padding-bottom: 80%;
+  // }
+
+  // &.ratio--90-95 {
+  //   width: 90%;
+  //   padding-bottom: 95%;
+  // }
+
+  // &.ratio--90-112 {
+  //   width: 90%;
+  //   padding-bottom: 112%;
+  // }
+
+  // &.ratio--100-36 {
+  //   width: 100%;
+  //   padding-bottom: 36%;
+  // }
+
+  // &.ratio--100-40 {
+  //   width: 100%;
+  //   padding-bottom: 40%;
+  // }
+
+  // &.ratio--100-58 {
+  //   width: 100%;
+  //   padding-bottom: 58%;
+  // }
+
+  // &.ratio--100-65 {
+  //   width: 100%;
+  //   padding-bottom: 65%;
+  // }
+
+  // &.ratio--100-80 {
+  //   width: 100%;
+  //   padding-bottom: 80%;
+  // }
+
+  // &.ratio--100-100 {
+  //   width: 100%;
+  //   padding-bottom: 100%;
+  // }
 }
 
-// containing small icons
-
-// .ratio-box.lazy-icon {
-//   width: 35%;
-//   margin: auto;
-//   padding-bottom: 35%;
-// }
-
-// .ratio-box.lazy-img {
-//   width: 100%;
-//   margin: auto;
-//   padding-bottom: 58%;
-// }
-
-// .lazy-img.box-100 {
-//   width: 100%;
-//   margin: auto;
-//   padding-bottom: 100%;
-// }
-
-// .lazy-img.box-65 {
-//   width: 65%;
-//   margin: auto;
-//   padding-bottom: 65%;
-// }
-
-// .lazy-img.pad-65 {
-//   width: 100%;
-//   margin: auto;
-//   padding-bottom: 65%;
-// }
-
-// .lazy-img.pad-40 {
-//   width: 100%;
-//   margin: auto;
-//   padding-bottom: 40%;
-// }
-
-// .lazy-img.pad-36 {
-//   width: 100%;
-//   margin: auto;
-//   padding-bottom: 36%;
-// }
 
 .ratio-box img,
 .ratio-box iframe,
@@ -150,25 +215,13 @@
   display: block;
 }
 
-.lazy-img {
-  .img-small {
-    filter: blur(30px);
-    transform: scale(1);
-  }
+.img-small {
+  filter: blur(15px);
+  transform: scale(1);
 }
 
 .img-large {
   opacity: 0;
-}
-
-.img-small {
-  filter: blur(10px);
-  transform: scale(1);
-}
-
-.img-small.lazyloaded {
-  filter: blur(0);
-  transition: filter 300ms linear;
 }
 
 .img-large.lazyloaded {
