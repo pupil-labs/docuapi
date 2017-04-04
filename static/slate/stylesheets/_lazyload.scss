@@ -9,200 +9,33 @@
   margin: auto;
   overflow: hidden;
 
-
-  &.ratio--35-35 {
-    width: 35%;
-    padding-bottom: 35%;
-  }
-
-  &.ratio--60-53 {
-    width: 60%;
-    padding-bottom: 53%;
-  }
-
-  &.ratio--65-65 {
-    width: 65%;
-    padding-bottom: 65%;
-  }
-
-  &.ratio--85-85 {
-    width: 85%;
-    padding-bottom: 85%;
-  }
-
-  &.ratio--70-32 {
-    width: 70%;
-    padding-bottom: 32%;
-  }
-
-  &.ratio--70-40 {
-    width: 70%;
-    padding-bottom: 40%;
-  }
-
-  &.ratio--70-58 {
-    width: 70%;
-    padding-bottom: 58%;
-  }
-
-  &.ratio--70-65 {
-    width: 70%;
-    padding-bottom: 65%;
-  }
-
-  &.ratio--90-50 {
-    width: 90%;
-    padding-bottom: 50%;
-  }
-
-  &.ratio--90-75 {
-    width: 90%;
-    padding-bottom: 75%;
-  }
-
-  &.ratio--90-80 {
-    width: 90%;
-    padding-bottom: 80%;
-  }
-
-  &.ratio--90-95 {
-    width: 90%;
-    padding-bottom: 95%;
-  }
-
-  &.ratio--90-112 {
-    width: 90%;
-    padding-bottom: 112%;
-  }
-
-  &.ratio--100-36 {
-    width: 100%;
-    padding-bottom: 36%;
-  }
-
-  &.ratio--100-40 {
-    width: 100%;
-    padding-bottom: 40%;
-  }
-
-  &.ratio--100-58 {
-    width: 100%;
-    padding-bottom: 58%;
-  }
-
-  &.ratio--100-65 {
-    width: 100%;
-    padding-bottom: 65%;
-  }
-
-  &.ratio--100-80 {
-    width: 100%;
-    padding-bottom: 80%;
-  }
-
-  &.ratio--100-100 {
-    width: 100%;
+  &.ratio-100 {
     padding-bottom: 100%;
   }
 
-  // ratio in px
-
-  &.ratio--200-200 {
-    width: 200px;
-    padding-bottom: 200px;
+  &.ratio-61 {
+    padding-bottom: 61%;
   }
 
-  // &.ratio--60-53 {
-  //   width: 60%;
-  //   padding-bottom: 53%;
-  // }
+  &.ratio-56 {
+    padding-bottom: 56.66%;
+  }
 
-  // &.ratio--65-65 {
-  //   width: 65%;
-  //   padding-bottom: 65%;
-  // }
+  &.ratio-40 {
+    padding-bottom: 40%;
+  }
 
-  // &.ratio--85-85 {
-  //   width: 85%;
-  //   padding-bottom: 85%;
-  // }
+  &.ratio-30 {
+    padding-bottom: 30%;
+  }
 
-  // &.ratio--70-32 {
-  //   width: 70%;
-  //   padding-bottom: 32%;
-  // }
 
-  // &.ratio--70-40 {
-  //   width: 70%;
-  //   padding-bottom: 40%;
-  // }
+  &.ratio--logo {
+    padding-bottom: 150px;
+    width: 150px;
+  }  
 
-  // &.ratio--70-58 {
-  //   width: 70%;
-  //   padding-bottom: 58%;
-  // }
-
-  // &.ratio--70-65 {
-  //   width: 70%;
-  //   padding-bottom: 65%;
-  // }
-
-  // &.ratio--90-50 {
-  //   width: 90%;
-  //   padding-bottom: 50%;
-  // }
-
-  // &.ratio--90-75 {
-  //   width: 90%;
-  //   padding-bottom: 75%;
-  // }
-
-  // &.ratio--90-80 {
-  //   width: 90%;
-  //   padding-bottom: 80%;
-  // }
-
-  // &.ratio--90-95 {
-  //   width: 90%;
-  //   padding-bottom: 95%;
-  // }
-
-  // &.ratio--90-112 {
-  //   width: 90%;
-  //   padding-bottom: 112%;
-  // }
-
-  // &.ratio--100-36 {
-  //   width: 100%;
-  //   padding-bottom: 36%;
-  // }
-
-  // &.ratio--100-40 {
-  //   width: 100%;
-  //   padding-bottom: 40%;
-  // }
-
-  // &.ratio--100-58 {
-  //   width: 100%;
-  //   padding-bottom: 58%;
-  // }
-
-  // &.ratio--100-65 {
-  //   width: 100%;
-  //   padding-bottom: 65%;
-  // }
-
-  // &.ratio--100-80 {
-  //   width: 100%;
-  //   padding-bottom: 80%;
-  // }
-
-  // &.ratio--100-100 {
-  //   width: 100%;
-  //   padding-bottom: 100%;
-  // }
 }
-
 
 .ratio-box img,
 .ratio-box iframe,
@@ -227,4 +60,216 @@
 .img-large.lazyloaded {
   opacity: 1;
   transition: opacity 300ms linear;
+}
+
+.figure-container {
+  width: 700px;
+  margin: auto;
+
+  &.table-img {
+    width: 400px;
+    margin: auto;
+  }
+
+  &.ratio-gif--1of3 {
+    width: 300px;
+  }  
+}
+
+
+
+
+
+// blockquote images
+
+@media (max-width: 1700px) {
+  .figure-container {
+    width: 600px;
+    margin: auto;
+  }
+}
+
+@media (max-width: 1500px) {
+  .figure-container {
+    width: 500px;
+    margin: auto;
+  }
+}
+
+@media (max-width: 1300px) {
+  .figure-container {
+    width: 400px;
+    margin: auto;
+  }
+}
+
+@media (max-width: 1100px) {
+  .figure-container {
+    width: 350px;
+    margin: auto;
+  }
+}
+
+// 1024px
+@media (max-width: $laptop-width) {
+  .figure-container {
+    width: 500px;
+    margin: auto;
+  }
+}
+
+// 767
+@media (max-width: $phone-width) {
+  .figure-container {
+    width: 500px;
+    margin: auto;
+  }
+}
+
+@media (max-width: 540) {
+  .figure-container {
+    width: 400px;
+    margin: auto;
+  }
+}
+
+@media (max-width: 540) {
+  .figure-container {
+    width: 300px;
+    margin: auto;
+  }
+}
+
+
+// table-img media screen
+
+@media (max-width: 1780px) {
+  .figure-container {
+    &.table-img {
+      width: 350px;
+      margin: auto;
+    }
+  }
+}
+
+@media (max-width: 1630px) {
+  .figure-container {
+    &.table-img {
+      width: 300px;
+      margin: auto;
+    }
+  }
+}
+
+@media (max-width: 1420px) {
+  .figure-container {
+    &.table-img {
+      width: 250px;
+      margin: auto;
+    }
+  }
+}
+
+@media (max-width: 1220px) {
+  .figure-container {
+    &.table-img {
+      width: 200px;
+      margin: auto;
+    }
+  }
+}
+
+@media (max-width: $laptop-width) {
+  .figure-container {
+    &.table-img {
+      width: 300px;
+      margin: auto;
+    }
+  }
+}
+
+@media (max-width: 878px) {
+  .figure-container {
+    &.table-img {
+      width: 250px;
+      margin: auto;
+    }
+  }
+}
+
+
+@media (max-width: $phone-width) {
+  .figure-container {
+    &.table-img {
+      width: 400px;
+      margin: auto;
+    }
+  }
+}
+
+// gif
+
+@media (max-width: 2000px) {
+  .figure-container {
+    &.ratio-gif--1of3 {
+      width: 250px;
+    }  
+  }
+}
+
+@media (max-width: 1700px) {
+  .figure-container {
+    &.ratio-gif--1of3 {
+      width: 200px;
+    }  
+  }
+}
+
+@media (max-width: 1400px) {
+  .figure-container {
+    &.ratio-gif--1of3 {
+      width: 150px;
+    }  
+  }
+}
+
+@media (max-width: 1150px) {
+  .figure-container {
+    &.ratio-gif--1of3 {
+      width: 120px;
+    }  
+  }
+}
+
+@media (max-width: $laptop-width) {
+  .figure-container {
+    &.ratio-gif--1of3 {
+      width: 250px;
+    }  
+  }
+}
+
+@media (max-width: 970px) {
+  .figure-container {
+    &.ratio-gif--1of3 {
+      width: 200px;
+    }  
+  }
+}
+
+@media (max-width: 850px) {
+  .figure-container {
+    &.ratio-gif--1of3 {
+      width: 180px;
+    }  
+  }
+}
+
+// 767
+@media (max-width: $phone-width) {
+  .figure-container {
+    &.ratio-gif--1of3 {
+      width: 300px;
+    }  
+  }
 }
