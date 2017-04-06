@@ -1,8 +1,17 @@
-<figure class="{{ with .Get "figure-class" }}{{ . }}{{ end }}">
-	<div class="{{ with .Get "div-class" }}{{ . }}{{ end }}">
-		<img src="{{ with .Get "src" }}{{ . }}{{ end }}" class="img-small" width="{{ with .Get "small-width" }}{{ . }}{{ end }}" height="{{ with .Get "small-height" }}{{ . }}{{ end }}">
-		<img data-src="{{ with .Get "data-src" }}{{ . }}{{ end }}" class="img-large lazyload" width="{{ with .Get "large-width" }}{{ . }}{{ end }}" height="{{ with .Get "large-height" }}{{ . }}{{ end }}">
-	</div>
-</figure>
+{{ with .Get "src" }}
+    {{ $.Scratch.Set "imgPath" (printf "/content%s" . ) }}
+{{ end }}
 
+{{ with (imageConfig ( $.Scratch.Get "imgPath" ) ) }}
+    {{ $.Scratch.Set "ratio" (printf "%.4f%%" (mul (div (mul .Height 1.0) (mul .Width 1.0)) 100.0)) }}
+{{ end }}
+
+{{ $ratio := $.Scratch.Get "ratio" }}
+
+<figure class="figure-container {{ with .Get "figure-class" }}{{ . }}{{ end }}">
+    <div class="ratio-box lazy-img" style="padding-bottom: {{ $ratio }};">
+        <img src="{{ with .Get "src" }}{{ . | replaceRE "[.](jpe?g|png|gif)" (printf "_preview%s" "$0") }}{{ end }}" class="img-small">
+        <img data-src="{{ with .Get "src" }}{{ . }}{{ end }}" class="img-large lazyload">
+    </div>
+</figure>
 
