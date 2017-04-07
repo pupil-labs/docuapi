@@ -215,6 +215,7 @@
 .content-container {
   margin-right: 50%;
   padding: 0 1.2em;
+  // margin: auto;
 
   .Grid-cell {
     figure {
@@ -226,7 +227,7 @@
 
 .feature-content-container {
   width: 550px;
-  margin:auto;
+  margin: auto;
   // margin-right: 0;
   padding: 0 1.2em;
 }
@@ -236,34 +237,26 @@
   margin: auto;
 }
 
-@media (max-width: $laptop-L-width) {
-  .feature-content-container {
-    width: 370px;
-    margin:a uto;
-    padding: 0 1.2em;
-  }
-}
-
 @media (max-width: $laptop-width) {
   .content-container {
-    margin-right: 0;
+    margin: auto;
   }
 
   .feature-content-container {
-    width: 500px;
-    margin:a uto;
+    width: 450px;
+    margin: auto;
     padding: 0 1.2em;
   }
 }
 
 @media (max-width: $phone-width) {
+  .content-container {
+    margin-right: 0;
+  }
 
-}
-
-@media (max-width: $phone-S-width) {
   .feature-content-container {
     width: 280px;
-    margin:a uto;
+    margin: auto;
     padding: 0 1.2em;
   }
 }

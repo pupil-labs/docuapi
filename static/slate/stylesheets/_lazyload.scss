@@ -60,7 +60,7 @@
 }
 
 .img-small {
-  filter: blur(15px);
+  filter: blur(50px);
   transform: scale(1);
 }
 
@@ -83,98 +83,72 @@
 //----------------------------
 
 // 1440px
-@media (max-width: $laptop-L-width) {
-  .figure-container {
-    width: 370px;
+// @media (max-width: $laptop-L-width) {
+//   .figure-container {
+//     width: 370px;
 
-    &.img-m {
-      width:200px;
-    }
-  }
+//     &.img-m {
+//       width:200px;
+//     }
+//   }
 
 
-  .Grid--1of2>.Grid-cell {
-    .figure-container {
-      width: 190px;
-    }
-  }
+//   .Grid--1of2>.Grid-cell {
+//     .figure-container {
+//       width: 190px;
+//     }
+//   }
 
-  .Grid--1of3>.Grid-cell {
-    .figure-container {
-      width: 130px;
-    }
-  }
-}
+//   .Grid--1of3>.Grid-cell {
+//     .figure-container {
+//       width: 130px;
+//     }
+//   }
+// }
 
 // toc + single column
 // 1024px
 @media (max-width: $laptop-width) {
   .figure-container {
-    width: 500px;
+    width: 450px;
 
     &.img-m {
-      width:300px;
+      width:280px;
     }
 
     &.img-s {
-      width:300px;
+      width:150px;
     }
   }
 
   .Grid--1of3>.Grid-cell {
     .figure-container {
-      width: 200px;
+      width: 180px;
     }
   }
 
-  .Grid--1of2>.Grid-cell {
-    .figure-container {
-      width: 200px;
-    }
-  }
 }
 
 // 768px
 @media (max-width: $phone-width) {
   .figure-container {
-    width: 500px;
+    width: 300px;
+
+    &.img-m {
+      width:200px;
+    }
 
     &.img-s {
-      width: 200px;
+      width:100px;
     }
-  }  
 
-  // .Grid--1of2>.Grid-cell {
-  //   .figure-container {
-  //     width: 400px;
-  //   }
-  // }
-
-  .Grid--1of3>.Grid-cell {
-    .figure-container {
-      width: 260px;
+    &.img-xs {
+      width: 100px;
     }
   }
-}
-
-@media (max-width: $phone-S-width) {
-  .figure-container {
-    width: 280px;
-
-    &.img-s {
-      width: 150px;
-    }
-  }  
-
-  // .Grid--1of2>.Grid-cell {
-  //   .figure-container {
-  //     width: 280px;
-  //   }
-  // }
-
   .Grid--1of3>.Grid-cell {
     .figure-container {
-      width: 180px;
+      width: 200px;
     }
   }
 }
