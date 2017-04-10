@@ -1,0 +1,9 @@
+<div class="feature-content-container">
+  <div class="feature-video-container" >
+    <video class="feature-video" poster="{{ with .Get "src" }}{{ . }}{{ end }}.jpg">
+      <source src="{{ with .Get "src" }}{{ . }}{{ end }}.mp4" type="video/mp4">
+      <source src="{{ with .Get "src" }}{{ . }}{{ end }}.webm" type="video/webm">
+      <a href="{{ with .Get "src" }}{{ . }}{{ end }}.mp4" download>Download</a>
+    </video>
+  </div>
+</div>
