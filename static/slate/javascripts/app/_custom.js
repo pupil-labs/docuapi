@@ -4,9 +4,13 @@ $(document).ready(function() {
   $("#version-selector").val(window.location.pathname.replace(/\//g,''));
 
   $('.github-link').each(function() {
-      // console.log($(this).data() + $(this).nextAll(':header').filter(':first').text());
-      $(this).append("<a href='"+$(this).data('github')+"' rel='noopener'>Edit `"+$(this).data('file')+"` on Github</a>");
-      $(this).insertAfter($(this).nextAll(':header').filter(':first'));
+      //$(this).append("<a href='"+$(this).data('github')+"' rel='noopener'>Edit `"+$(this).data('file')+"` on Github</a>");
+      //$(this).insertAfter($(this).nextAll(':header').filter(':first'));
+      $(this).nextAll(':header')
+        .filter(':first')
+        .find('.github-edit')
+        .attr('href', $(this).data('github'))
+        .append("<i class='material-icons'>mode_edit</i>");
   });
 
   $(".anchor").click( function() {

@@ -415,15 +415,23 @@
 
             }));
 
-            self.append($("<a/>", {
+            var hash_link = $("<a/>", {
                 "name": hashValue,
 
                 "class": "anchor",
 
                 "href": "#"+hashValue,
 
-                "text": "#"
+                "text": ""
+            }).append($("<i/>", {
+                "class": "material-icons",
+
+                "text": "link"
             }));
+
+            self.append(hash_link);
+
+            self.append("<a class='github-edit' href='#'></a>");
 
             return item;
 

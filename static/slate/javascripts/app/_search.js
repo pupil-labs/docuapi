@@ -52,8 +52,9 @@
         searchResults.empty();
         $.each(results, function (index, result) {
           var elem = document.getElementById(result.ref);
-          // remove the trailing # that we have added
-          var txt = $(elem).text().slice(0,-1)
+          // if contains `link` and `mode_edit`, remove from search result string
+          var regex = /linkmode_edit|link/;
+          var txt = $(elem).text().replace(regex,"");
           searchResults.append("<li><a href='#" + result.ref + "'>" + txt + "</a></li>");
         });
         highlight.call(this);
