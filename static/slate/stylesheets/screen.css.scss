@@ -704,7 +704,7 @@ html, body {
   }
 }
 
-@media (max-width: $laptop-width) {
+@media (max-width: $phone-width) {
   .dark-box {
     display: none;
   }
@@ -734,7 +734,6 @@ html, body {
     margin: 0;
     padding: 0 24px 20px 24px;
   }
-
 }
 
 .highlight .c, .highlight .cm, .highlight .c1, .highlight .cs {

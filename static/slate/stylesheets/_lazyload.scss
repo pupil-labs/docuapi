@@ -1,38 +1,32 @@
 .figure-container {
-  width: 550px;
+  width: calc(100% - 30px);
+  max-width: 550px;
   margin: auto;
 
   &.img-m {
-    width:350px;
+    width: calc(100% - 200px);
+    max-width: 320px;
+    min-width: 250px;
   }
 
   &.img-s {
-    width:200px;
+    width: calc(100% - 100px);
+    max-width:200px;
+    min-width: 150px;
   }
 
   &.img-xs {
-    width: 150px;
-  }
-}
-
-.content>.figure-container {
-    margin: 0 50% 0 0;
-
-    &.img-xs {
-      width: 150px;
-    }
-}
-
-// images in grid containers
-.Grid--1of2>.Grid-cell {
-  .figure-container {
-    width: 300px;
+    max-width: 150px;
+    min-width: 100px;
+    width:calc(100% - 483px);
   }
 }
 
 .Grid--1of3>.Grid-cell {
   .figure-container {
-    width: 200px;
+    width: 100%;
+    max-width:350px;
+    min-width: 85px;
   }
 }
 
@@ -78,77 +72,23 @@
   transition: opacity 300ms linear;
 }
 
-//----------------------------
-// media screen
-//----------------------------
 
-// 1440px
-// @media (max-width: $laptop-L-width) {
-//   .figure-container {
-//     width: 370px;
-
-//     &.img-m {
-//       width:200px;
-//     }
-//   }
-
-
-//   .Grid--1of2>.Grid-cell {
-//     .figure-container {
-//       width: 190px;
-//     }
-//   }
-
-//   .Grid--1of3>.Grid-cell {
-//     .figure-container {
-//       width: 130px;
-//     }
-//   }
-// }
-
-// toc + single column
-// 1024px
-@media (max-width: $laptop-width) {
-  .figure-container {
-    width: 450px;
-
-    &.img-m {
-      width:280px;
-    }
-
-    &.img-s {
-      width:150px;
-    }
-  }
-
-  .Grid--1of3>.Grid-cell {
-    .figure-container {
-      width: 180px;
-    }
-  }
-
-}
-
-// 768px
 @media (max-width: $phone-width) {
   .figure-container {
-    width: 300px;
-
-    &.img-m {
-      width:200px;
-    }
-
-    &.img-s {
-      width:100px;
-    }
-
-    &.img-xs {
-      width: 100px;
-    }
+    width: calc(100% - 300px);
+    min-width: 300px;
   }
+
   .Grid--1of3>.Grid-cell {
     .figure-container {
-      width: 200px;
+      width: calc(100% - 300px);
+      max-width: 200px;
+      min-width: 200px;
+    }
+  }
+  .figure-container {
+    &.img-xs {
+      max-width: 100px;
     }
   }
 }
