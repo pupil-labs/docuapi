@@ -227,14 +227,12 @@
 
 .content img {
     &.logo {
-      max-width: 150px;
-      min-width: 100px;
+      max-width: 20%;
   }
 }
 
 .feature-content-container {
-  width: calc(100% - 40px);
-  max-width: 550px;
+  max-width: 75%;
   margin: auto;
   // margin-right: 0;
   padding: 0 1.2em;
@@ -246,10 +244,6 @@
 }
 
 @media (max-width: $laptop-width) {
-  .feature-content-container {
-    width: calc(100% - 40px);
-  }
-
   .content-container {
     &.quick-nav {
         margin-right: 0;
@@ -264,12 +258,11 @@
 
   .content img {
     &.logo {
-      max-width: 100px;
+      max-width: 30%;
   }
 }
 
   .feature-content-container {
-    width: calc(100% - 300px);
-    min-width: 280px;
+    max-width: 70%;
   }
 }
