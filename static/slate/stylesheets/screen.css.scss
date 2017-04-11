@@ -352,6 +352,7 @@ html, body {
   // to place content above the dark box
   position: relative;
   z-index: 1;
+  max-width: 1920px;
 
   &:after {
     content: '';
@@ -704,7 +705,7 @@ html, body {
   }
 }
 
-@media (max-width: $laptop-width) {
+@media (max-width: $phone-width) {
   .dark-box {
     display: none;
   }
@@ -734,7 +735,6 @@ html, body {
     margin: 0;
     padding: 0 24px 20px 24px;
   }
-
 }
 
 .highlight .c, .highlight .cm, .highlight .c1, .highlight .cs {

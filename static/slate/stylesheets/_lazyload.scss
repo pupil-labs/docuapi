@@ -1,38 +1,23 @@
 .figure-container {
-  width: 550px;
+  max-width: 75%;
   margin: auto;
 
   &.img-m {
-    width:350px;
+    max-width: 50%;
   }
 
   &.img-s {
-    width:200px;
+    max-width: 40%;
   }
 
   &.img-xs {
-    width: 150px;
-  }
-}
-
-.content>.figure-container {
-    margin: 0 50% 0 0;
-
-    &.img-xs {
-      width: 150px;
-    }
-}
-
-// images in grid containers
-.Grid--1of2>.Grid-cell {
-  .figure-container {
-    width: 300px;
+    max-width: 18%;
   }
 }
 
 .Grid--1of3>.Grid-cell {
   .figure-container {
-    width: 200px;
+    max-width: 100%;
   }
 }
 
@@ -78,77 +63,31 @@
   transition: opacity .1s linear;
 }
 
-//----------------------------
-// media screen
-//----------------------------
 
-// 1440px
-// @media (max-width: $laptop-L-width) {
-//   .figure-container {
-//     width: 370px;
-
-//     &.img-m {
-//       width:200px;
-//     }
-//   }
-
-
-//   .Grid--1of2>.Grid-cell {
-//     .figure-container {
-//       width: 190px;
-//     }
-//   }
-
-//   .Grid--1of3>.Grid-cell {
-//     .figure-container {
-//       width: 130px;
-//     }
-//   }
-// }
-
-// toc + single column
-// 1024px
-@media (max-width: $laptop-width) {
+@media (max-width: $phone-width) {
   .figure-container {
-    width: 450px;
-
-    &.img-m {
-      width:280px;
-    }
-
-    &.img-s {
-      width:150px;
-    }
+    max-width: 70%;
   }
 
   .Grid--1of3>.Grid-cell {
     .figure-container {
-      width: 180px;
+      max-width: 65%;
+      // min-width: 230px;
     }
   }
-
-}
-
-// 768px
-@media (max-width: $phone-width) {
   .figure-container {
-    width: 300px;
 
     &.img-m {
-      width:200px;
+      max-width: 56%;
+      // min-width: 250px;
     }
 
     &.img-s {
-      width:100px;
+      max-width: 45%;
     }
 
     &.img-xs {
-      width: 100px;
-    }
-  }
-  .Grid--1of3>.Grid-cell {
-    .figure-container {
-      width: 200px;
+      max-width: 20%;
     }
   }
 }
