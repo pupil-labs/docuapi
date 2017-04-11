@@ -16,7 +16,7 @@
 <!-- the first img uses the replaceRE to add a suffix for lq img path -->
 <figure class="figure-container {{ with .Get "figure-class" }}{{ . }}{{ end }}">
     <div class="ratio-box lazy-img" style="padding-bottom: {{ $ratio }};">
-        <img src="{{ with .Get "src" }}{{ . | replaceRE "([.][a-zA-Z][0-9]+[.]jpe?g|png|gif)" (printf "_preview%s" "$0") }}{{ end }}" class="img-small">
+        <img src="{{ with .Get "src" }}{{ . | replaceRE "([.][a-zA-Z0-9]+[.]jpe?g|png|gif)" (printf "_preview%s" "$0") }}{{ end }}" class="img-small">
         <img data-src="{{ with .Get "src" }}{{ . }}{{ end }}" class="img-large lazyload">
     </div>
 </figure>
