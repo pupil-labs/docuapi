@@ -339,7 +339,8 @@
     left: 0;
     right: 0;
     bottom: 0;
-    padding: ($plyr-control-spacing * 5) $plyr-control-spacing $plyr-control-spacing;
+    // disable / hide plyr controls completely
+    // padding: ($plyr-control-spacing * 5) $plyr-control-spacing $plyr-control-spacing;
     background: linear-gradient(transparentize($plyr-video-controls-bg, 1), transparentize($plyr-video-controls-bg, .5));
     border-bottom-left-radius: inherit;
     border-bottom-right-radius: inherit;
@@ -388,7 +389,7 @@
     // border-radius: 100%;
     // box-shadow: 0 1px 1px transparentize(#000, .85);
     color: $plyr-video-control-color;
-    transition: all .3s ease;
+    transition: all .2s cubic-bezier(.4,0,.2,1);
     background-color: transparent;
     border-color: transparent;
     outline: none;
@@ -756,5 +757,12 @@
         height: 0;
         top: 50%;
         transform: translateY(-50%);
+    }
+}
+
+// remove jpg placeholder container when plyr script loads
+.feature-video {
+    &.plyr--setup {
+        position: relative;
     }
 }
