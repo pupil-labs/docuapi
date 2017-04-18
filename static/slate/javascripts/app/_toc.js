@@ -16,12 +16,16 @@
       extendPage: false,
       theme: 'none',
       smoothScroll: false,
+      showAndHideOnScroll: false,
       showEffectSpeed: 0,
       hideEffectSpeed: 180,
       ignoreSelector: '.toc-ignore',
       highlightOffset: 90,
+      highlightOnScroll: false,
+      highlightDefault: false,
       scrollTo: 50,
-      scrollHistory: true,
+      scrollHistory: false,
+
       hashGenerator: function (text, element) {
         return element.prop('id');
       }
