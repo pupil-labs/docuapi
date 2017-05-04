@@ -36,6 +36,21 @@
   }
 }
 
+// images in grid containers
+.Grid-cell--1of2 {
+  .figure-container {
+    &.img-m {
+      width: 250px;
+    }
+  }
+}
+
+.Grid--1of3>.Grid-cell {
+  .figure-container {
+    width: 165px;
+  }
+}
+
 // containers
 .lazy-img {
   margin: auto;

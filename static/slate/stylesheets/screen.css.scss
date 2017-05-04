@@ -389,7 +389,7 @@ html, body {
   }
 
   &>ul, &>ol {
-    padding-left: $main-padding + 15px;
+    padding-left: $main-padding + 30px;
   }
 
   // the div is the tocify hidden div for placeholding stuff
@@ -407,7 +407,7 @@ html, body {
     // margin-top: 2em;
     color: #ccc;
     background: #444;
-    margin:0;
+    // margin:0;
     // border-top: 1px solid #ddd;
     // background-image: linear-gradient(to bottom, #fff, #f9f9f9);
   }
@@ -529,13 +529,15 @@ html, body {
   }
 
   aside {
-    padding-top: 1em;
-    padding-bottom: 1em;
+    padding: 1em 50px;
     text-shadow: 0 1px 0 lighten($aside-notice-bg, 15%);
     margin-top: 1.5em;
     margin-bottom: 1.5em;
     background: $aside-notice-bg;
     line-height: 1.6;
+    margin-left: $main-padding;
+    margin-right: 55%;
+    border-radius: 5px;
 
     &.warning {
       background-color: $aside-warning-bg;
@@ -589,7 +591,6 @@ html, body {
     // padding: 2em $main-padding;
     margin: 0;
     width: $examples-width;
-
     float:right;
     clear:right;
 
@@ -609,9 +610,10 @@ html, body {
 
   pre {
     @extend %code-font;
-    padding: 2em $main-padding;
+    padding: 2em 28px;
     background-color: $code-bg;
     margin-bottom: 10px;
+    width: 50%;
   }
 
   blockquote {
@@ -619,6 +621,7 @@ html, body {
       // background-color: $code-annotation-bg;
       // border-radius: 5px;
       // padding: $code-annotation-padding;
+      // padding: 0 10px 13px 10px;
       padding: 0 10px 13px 10px;
       // color: #ccc;
       color: #333;
