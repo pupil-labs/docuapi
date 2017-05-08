@@ -213,8 +213,9 @@
 }
 
 .content-container {
-  margin-right: 50%;
-  padding: 0 1.2em;
+  margin-right: $examples-width;;
+  padding: 0 80px;
+  // padding: 0 1.2em;
   // margin: auto;
 
   .Grid-cell {
@@ -236,6 +237,16 @@
   margin: auto;
   // margin-right: 0;
   padding: 0 1.2em;
+}
+
+.Grid-cell--1of2 {
+  .feature-content-container {
+    width: 550px;
+    margin: auto;
+    padding: 0;
+    // margin-right: 0;
+    // padding: 0 1.2em;
+  }
 }
 
 .feature-center {
