@@ -9,6 +9,7 @@
 @import 'fonts';
 @import 'monokai';
 @import 'lazyload';
+@import 'plyr';
 
 /*
 Copyright 2008-2013 Concur Technologies, Inc.
@@ -352,7 +353,7 @@ html, body {
   // to place content above the dark box
   position: relative;
   z-index: 1;
-  max-width: 1920px;
+  max-width: $max-content-width;
 
   &:after {
     content: '';
