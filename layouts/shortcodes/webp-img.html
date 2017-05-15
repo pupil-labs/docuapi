@@ -1,0 +1,26 @@
+<!-- Hugo Scratch - a “scratchpad” for page-scoped variables -->
+
+<!-- set key for the image paths -->
+{{ with .Get "src" }}
+    {{ $.Scratch.Set "imgPath" (printf "/content%s" . ) }}
+{{ end }}
+<!-- using the imgPath to parse images in Hugo function and output the aspect ratio of the image in percentage -->
+{{ with (imageConfig ( $.Scratch.Get "imgPath" ) ) }}
+    {{ $.Scratch.Set "ratio" (printf "%.4f%%" (mul (div (mul .Height 1.0) (mul .Width 1.0)) 100.0)) }}
+{{ end }}
+<!-- set the ratio value as a variable -->
+{{ $ratio := $.Scratch.Get "ratio" }}
+
+<!-- set -->
+{{ with .Get "src" }}
+    {{ $.Scratch.Set "srcBaseName" (replaceRE "(.*)[.](jpe?g|png|gif|webp)" "$1" . ) }}
+{{ end }}
+
+<figure class="figure-container {{ with .Get "figure-class" }}{{ . }}{{ end }}" >
+    <picture class="ratio-box lazy-img" style="padding-bottom: {{ $ratio }};" >
+		<source srcset="{{ with .Scratch.Get "srcBaseName" }}{{ . }}{{ end }}.webp" type="image/webp" >
+    	<source srcset="{{ with .Scratch.Get "srcBaseName" }}{{ . }}{{ end }}.jpg" type="image/jpeg" >
+     	<img src="{{ with .Scratch.Get "srcBaseName" }}{{ . | replaceRE "([.][a-zA-Z0-9]+[.]jpe?g|png|gif)" (printf "_preview%s" "$0") }}{{ end }}.jpg" class="img-small">
+     	<img data-src="{{ with .Scratch.Get "srcBaseName" }}{{ . }}{{ end }}.jpg" class="img-large lazyload" alt="{{ with .Get "alt" }}{{ . }}{{ end }}">
+    </picture>
+</figure>
