@@ -18,9 +18,8 @@
 
 <figure class="figure-container {{ with .Get "figure-class" }}{{ . }}{{ end }}" >
     <picture class="ratio-box lazy-img" style="padding-bottom: {{ $ratio }};" >
-		<source srcset="{{ with .Scratch.Get "srcBaseName" }}{{ . }}{{ end }}.webp" type="image/webp" >
-    	<source srcset="{{ with .Scratch.Get "srcBaseName" }}{{ . }}{{ end }}.jpg" type="image/jpeg" >
-     	<img src="{{ with .Scratch.Get "srcBaseName" }}{{ . | replaceRE "([.][a-zA-Z0-9]+[.]jpe?g|png|gif)" (printf "_preview%s" "$0") }}{{ end }}.jpg" class="img-small">
-     	<img data-src="{{ with .Scratch.Get "srcBaseName" }}{{ . }}{{ end }}.jpg" class="img-large lazyload" alt="{{ with .Get "alt" }}{{ . }}{{ end }}">
+        <source srcset="{{ with .Scratch.Get "srcBaseName" }}{{ . }}{{ end }}.webp" type="image/webp" >
+        <img src="{{ with .Scratch.Get "srcBaseName" }}{{ . | replaceRE "([.][a-zA-Z0-9]+[.]jpe?g|png|gif|webp)" (printf "_preview%s" "$0") }}{{ end }}.jpg" class="img-small" >
+        <img data-src="{{ with .Scratch.Get "srcBaseName" }}{{ . }}{{ end }}.jpg" class="img-large lazyload" alt="{{ with .Get "alt" }}{{ . }}{{ end }}">
     </picture>
 </figure>
