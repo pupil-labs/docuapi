@@ -214,7 +214,7 @@
 
 .content-container {
   margin-right: $examples-width;;
-  padding: 0 80px;
+  padding: 0 $main-padding;
   // padding: 0 1.2em;
   // margin: auto;
 
@@ -254,13 +254,13 @@
   margin: auto;
 }
 
-@media (max-width: $laptop-width) {
-  .content-container {
-    &.quick-nav {
-        margin-right: 0;
-    }
-  }
-}
+// @media (max-width: $laptop-width) {
+//   .content-container {
+//     &.quick-nav {
+//         margin-right: 0;
+//     }
+//   }
+// }
 
 @media (max-width: $phone-width) {
   .content-container {
