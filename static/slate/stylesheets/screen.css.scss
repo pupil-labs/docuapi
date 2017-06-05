@@ -525,49 +525,43 @@ html, body {
     // text-shadow: 0 1px 0 lighten($aside-notice-bg, 15%);
     margin-top: 1.5em;
     margin-bottom: 1.5em;
-    background: $aside-notice-bg;
+    background: $aside-bg;
     line-height: 1.6;
     color: $aside-text;
+    border-left:10px solid $aside-notice-border;
+    margin-left: $main-padding;
 
-    > a {
-      color: #e0f7fa;
-    }
 
     &.warning {
-      background-color: $aside-warning-bg;
+      border-left:10px solid $aside-warning-border;
 
-      > a {
-        color: #78909c;
-      }
-      // text-shadow: 0 1px 0 lighten($aside-warning-bg, 15%);
     }
 
     &.success {
-      background-color: $aside-success-bg;
+      border-left:10px solid $aside-success-border;
 
-      > a {
-        color: #f5f5f5;
-      }
-      // text-shadow: 0 1px 0 lighten($aside-success-bg, 15%);
     }
   }
 
   aside:before {
     vertical-align: middle;
     padding-right: 0.5em;
-    font-size: 14px;
+    font-size: 20px;
   }
 
   aside.notice:before {
     @extend %icon-info-sign;
+    color: $aside-notice-border;
   }
 
   aside.warning:before {
     @extend %icon-exclamation-sign;
+    color: $aside-warning-border;
   }
 
   aside.success:before {
     @extend %icon-ok-sign;
+    color: $aside-success-border;
   }
 
   .search-highlight {
@@ -716,6 +710,7 @@ html, body {
 
   %left-col {
     margin-right: 0;
+    margin-left: 0;
   }
 
   .tocify-wrapper .lang-selector {
