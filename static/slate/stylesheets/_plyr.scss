@@ -336,12 +336,12 @@
 // Video controls
 .plyr--video .plyr__controls {
     position: absolute;
-    left: 0;
+    // left: 0;
     right: 0;
     bottom: 0;
     // disable / hide plyr controls completely
     // padding: ($plyr-control-spacing * 5) $plyr-control-spacing $plyr-control-spacing;
-    background: linear-gradient(transparentize($plyr-video-controls-bg, 1), transparentize($plyr-video-controls-bg, .5));
+    // background: linear-gradient(transparentize($plyr-video-controls-bg, 1), transparentize($plyr-video-controls-bg, .5));
     border-bottom-left-radius: inherit;
     border-bottom-right-radius: inherit;
     color: $plyr-video-control-color;
@@ -748,9 +748,20 @@
     .plyr__controls {
         position: absolute;
         bottom: 0;
-        left: 0;
+        // left: 0;
         right: 0;
     }
+
+    .plyr__play-large svg {
+        height: 150px;
+        width: 150px;
+    }
+
+    .plyr__controls button svg {
+        height: 25px;
+        width: 25px;
+    }
+
 
     // Vimeo requires some different styling
     &.plyr--vimeo .plyr__video-wrapper {

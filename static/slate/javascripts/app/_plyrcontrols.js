@@ -3,7 +3,7 @@
   // e.g. just plyr.setup(); and leave it at that if you have no need for events
   var instances = plyr.setup({
     // Output to console
-    controls: ["play-large"]
+    controls: ["play-large", "fullscreen"]
   });
 
 })();
