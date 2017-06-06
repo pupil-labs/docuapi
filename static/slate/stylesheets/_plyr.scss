@@ -266,6 +266,7 @@
     align-items: center;
     line-height: 1;
     text-align: center;
+    z-index: 2;
 
     // Spacing
     > button,
@@ -377,12 +378,12 @@
 
 // Large play button (video only)
 .plyr__play-large {
-    display: none;
+    // display: none;
     position: absolute;
     z-index: 1;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    // top: 50%;
+    // left: 50%;
+    // transform: translate(-50%, -50%);
     padding: $plyr-control-spacing;
     // background: $plyr-video-control-bg-hover;
     // border: 4px solid currentColor;
@@ -393,12 +394,16 @@
     background-color: transparent;
     border-color: transparent;
     outline: none;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
 
     svg {
         position: relative;
-        left: 2px;
-        width: 40px;
-        height: 40px;
+        // left: 2px;
+        width: 50px;
+        height: 50px;
         display: block;
         fill: currentColor;
     }
@@ -406,9 +411,16 @@
     // &:focus {
     //     outline: 1px dotted transparentize($plyr-video-control-color, .5);
     // }
+
+    &:hover {
+        color: $plyr-video-control-bg-hover;
+        transition: color .2s cubic-bezier(.4,0,.2,1);
+    }
 }
 .plyr .plyr__play-large {
-    display: inline-block;
+    // display: inline-block;
+    display: flex;
+    justify-content: center;
 }
 .plyr--audio .plyr__play-large {
     display: none;
