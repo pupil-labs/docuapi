@@ -115,6 +115,6 @@ $header-height: 50px;
 // These settings are probably best left alone.
 
 %break-words {
-    word-break: break-all;
+    word-break: break-word;
     hyphens: auto;
 }
