@@ -430,7 +430,7 @@
             }));
 
             self.append(hash_link);
-            
+
             self.append("<a class='github-edit' href='#'></a>");
 
             return item;
