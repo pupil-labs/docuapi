@@ -430,7 +430,6 @@
             }));
 
             self.append(hash_link);
-            // appends the github-edit anchor to h1-hn (as specified by _toc.js)
             self.append("<a class='github-edit' href='#'></a>");
 
             return item;
