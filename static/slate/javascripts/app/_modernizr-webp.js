@@ -9,12 +9,12 @@ document.addEventListener("DOMContentLoaded", function(event) {
       var jpg = poster_url.substr(0, poster_url.lastIndexOf(".")) + ".jpg";
 
       if (result) {
-          console.log("This browser supports Webp");
+          // console.log("This browser supports Webp");
       }
       else {
           // Set the attribute to file extension to jpg
           video[i].setAttribute('poster', jpg)
-          console.log("This browser doesn't support Webp");
+          // console.log("This browser doesn't support Webp");
       }
    }
   })
