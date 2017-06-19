@@ -522,46 +522,46 @@ html, body {
   aside {
     padding-top: 1em;
     padding-bottom: 1em;
-    // text-shadow: 0 1px 0 lighten($aside-notice-bg, 15%);
     margin-top: 1.5em;
     margin-bottom: 1.5em;
     background: $aside-bg;
     line-height: 1.6;
     color: $aside-text;
-    border-left:10px solid $aside-notice-border;
     margin-left: $main-padding;
 
-
+    &.notice {
+      border-left:10px solid $aside-notice-border;
+    }
     &.warning {
       border-left:10px solid $aside-warning-border;
-
     }
-
     &.success {
       border-left:10px solid $aside-success-border;
-
     }
-  }
+    &.faq {
+      border-left:10px solid $aside-faq-border;
+    }
 
-  aside:before {
-    vertical-align: middle;
-    padding-right: 0.5em;
-    font-size: 20px;
   }
 
   aside.notice:before {
-    @extend %icon-info-sign;
+    @extend %icon-info;
     color: $aside-notice-border;
   }
 
   aside.warning:before {
-    @extend %icon-exclamation-sign;
+    @extend %icon-error;
     color: $aside-warning-border;
   }
 
   aside.success:before {
-    @extend %icon-ok-sign;
+    @extend %icon-check-circle;
     color: $aside-success-border;
+  }
+
+  aside.faq:before {
+    @extend %icon-help;
+    color: $aside-faq-border;
   }
 
   .search-highlight {
