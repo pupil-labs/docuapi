@@ -539,7 +539,7 @@ html, body {
       border-left:10px solid $aside-success-border;
     }
     &.faq {
-      border-left:10px solid $aside-trouble-border;
+      border-left:10px solid $aside-faq-border;
     }
 
   }
@@ -561,7 +561,7 @@ html, body {
 
   aside.faq:before {
     @extend %icon-help;
-    color: $aside-trouble-border;
+    color: $aside-faq-border;
   }
 
   .search-highlight {
