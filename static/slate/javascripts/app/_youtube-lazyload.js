@@ -3,7 +3,7 @@
 
   for (var i = 0; i < youtube.length; i++) {
 
-    var img_embed = youtube[i].dataset.embed.replace(/h.+ed./,'');
+    var img_embed = youtube[i].dataset.embed.replace(/h.+ed.|[?].+/g,'');
 
     var img_src = "https://img.youtube.com/vi/"+ img_embed +"/sddefault.jpg";
 
@@ -17,7 +17,7 @@
       youtube[i].addEventListener("click", function() {
         var iframe = document.createElement("iframe");
 
-        var iframe_embed = this.dataset.embed.replace(/h.+ed./,'');
+        var iframe_embed = this.dataset.embed.replace(/h.+ed.|[?].+/g,'');
 
           iframe.setAttribute("frameborder", "0");
           iframe.setAttribute("allowfullscreen", "");
