@@ -1,34 +1,33 @@
-var version = 'v1';
-var pupil_docs_cache = 'pupil-docs-cache' + '-' + version;
+'use-strict'
+
+/* A version number is useful when updating the worker logic,
+   allowing you to remove outdated cache entries during the update.
+*/
+
+var gitVersion = '6cf9157';
+var pupil_docs_cache = 'pupil-docs-cache' + '-#' + gitVersion;
+
+/* These resources will be downloaded and cached by the service worker
+   during the installation process. If any resource fails to be downloaded,
+   then the service worker won't be installed either.
+*/
 var urlsToCache = [
-  '/'
-  // '/slate/stylesheets/screen.min.css',
-  // '/slate/javascripts/all.min.js',
-  // '/slate/javascripts/plyr.min.js',
-  // '/videos/calibration/pupil-detection/pd.jpg',
-  // '/videos/calibration/calibration-headset/clb-hd.jpg',
-  // '/videos/calibration/calibration-screen/clb-s.jpg',
-  // '/videos/recording/rec.jpg',
-  // '/videos/visualize/pp_vis.jpg',
-  // '/videos/headset-adjust/worldcam-lens.jpg',
-  // '/videos/headset-adjust/nosepad.jpg',
-  // '/videos/headset-adjust/eyecam-slide.jpg',
-  // '/videos/headset-adjust/worldcam-rotate.jpg',
-  // '/videos/hea dset-adjust/eyecam-rotate.jpg',
-  // '/videos/headset-adjust/eyecam-screw.jpg',
-  // '/videos/headset-adjust/eye-adjust.jpg',
-  // '/videos/headset-adjust/worldcam-focus.jpg',
-  // '/videos/capture-selection/pc-select.jpg',
-  // '/videos/calibration/calibration-mobo/clb-mobo.jpg',
-  // '/videos/calibration/calibration-manual/clb-man.jpg',
-  // '/videos/calibration/calibration-natural/clb-natural.jpg',
-  // '/videos/pupil-remote/pr.jpg',
-  // '/videos/surface-tracking/srf-tracking.jpg'
+  // '/'
+  '/slate/stylesheets/screen.min.css',
+  '/slate/javascripts/all.min.js',
+  '/slate/javascripts/plyr.min.js',
+  '/slate/javascripts/yt-lazyload.min.js',
+  '/videos/',
+  '/images/'
 ];
 
+console.log('WORKER: Executing...');
+
 self.addEventListener('install', function(event) {
-  // Perform install steps
-  console.log('SW: Installing... ')
+  console.log('WORKER: Installing... ')
+  /* Using event.waitUntil(p) blocks the installation process on the provided
+     promise. If the promise is rejected, the service worker won't be installed.
+  */
   event.waitUntil(
     caches.open(pupil_docs_cache)
       .then(function(cache) {
@@ -36,16 +35,19 @@ self.addEventListener('install', function(event) {
         return cache.addAll(urlsToCache);
       })
       .then(function() {
-        console.log('SW: Install completed');
+        console.log('WORKER: Install completed');
       })
   );
 });
 
-// self.addEventListener('activate', function(event) {
-//   console.log('SW activated. Now ready to handle fetches!');
-// });
+/* The fetch event fires whenever a page controlled by this service worker requests
+   a resource. This isn't limited to `fetch` or even XMLHttpRequest. Instead, it
+   comprehends even the request for the HTML page on first load, as well as JS and
+   CSS resources, fonts, any images, etc.
+*/
 
 self.addEventListener('fetch', function(event) {
+  console.log('WORKER: Fetch event in progress...');
   event.respondWith(
     caches.match(event.request)
       .then(function(response) {
@@ -54,10 +56,11 @@ self.addEventListener('fetch', function(event) {
           return response;
         }
 
-        // IMPORTANT: Clone the request. A request is a stream and
-        // can only be consumed once. Since we are consuming this
-        // once by cache and once by the browser for fetch, we need
-        // to clone the response.
+        /*  IMPORTANT: Clone the request. A request is a stream and
+            can only be consumed once. Since we are consuming this
+            once by cache and once by the browser for fetch, we need
+            to clone the response.
+        */
         var fetchRequest = event.request.clone();
 
         return fetch(fetchRequest).then(
@@ -67,11 +70,14 @@ self.addEventListener('fetch', function(event) {
               return response;
             }
 
-            // IMPORTANT: Clone the response. A response is a stream
-            // and because we want the browser to consume the response
-            // as well as the cache consuming the response, we need
-            // to clone it so we have two streams.
+            /*  IMPORTANT: Clone the response. A response is a stream
+                and because we want the browser to consume the response
+                as well as the cache consuming the response, we need
+                to clone it so we have two streams.
+            */
             var responseToCache = response.clone();
+
+            console.log('WORKER: Fetch response from network.', event.request.url);
 
             caches.open(pupil_docs_cache)
               .then(function(cache) {
@@ -85,19 +91,33 @@ self.addEventListener('fetch', function(event) {
     );
 });
 
+/*update
+
+*/
 self.addEventListener('activate', function(event) {
+
+  console.log('WORKER: Activate event in progress...');
 
   var cacheWhitelist = [pupil_docs_cache];
 
   event.waitUntil(
-    caches.keys().then(function(cacheNames) {
-      return Promise.all(
-        cacheNames.map(function(cacheName) {
-          if (cacheWhitelist.indexOf(cacheName) === -1) {
-            return caches.delete(cacheName);
-          }
-        })
-      );
+    caches
+      /* This method returns a promise which will resolve to an array of available
+         cache keys.
+      */
+      .keys()
+      .then(function(cacheNames) {
+        // We return a promise that settles when all outdated caches are deleted.
+        return Promise.all(
+          cacheNames.map(function(cacheName) {
+            if (cacheWhitelist.indexOf(cacheName) === -1) {
+              /* Return a promise that's fulfilled
+                 when each outdated cache is deleted.
+              */
+              return caches.delete(cacheName);
+            }
+          })
+        );
     })
   );
 });
