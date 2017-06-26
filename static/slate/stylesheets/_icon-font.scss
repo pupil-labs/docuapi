@@ -36,3 +36,45 @@
   @extend %icon;
   content: "\e607";
 }
+
+%material-icon {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-feature-settings: 'liga';
+  -webkit-font-smoothing: antialiased;
+}
+
+%aside-icon {
+  vertical-align: middle;
+  padding-right: 0.5em;
+}
+
+%icon-info {
+  @extend %aside-icon;
+  @extend %material-icon;
+  content: "\E88E";
+}
+%icon-error {
+  @extend %aside-icon;
+  @extend %material-icon;
+  content: "\E000";
+}
+%icon-check-circle {
+  @extend %aside-icon;
+  @extend %material-icon;
+  content: "\E86C";
+}
+%icon-help {
+  @extend %aside-icon;
+  @extend %material-icon;
+  content: "\E887";
+}
