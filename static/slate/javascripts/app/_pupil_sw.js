@@ -4,7 +4,7 @@
    allowing you to remove outdated cache entries during the update.
 */
 
-var gitVersion = '2db4ada';
+var gitVersion = 'c63de0b';
 var pupil_docs_cache = gitVersion+"::docs-cache";
 
 /* These resources will be downloaded and cached by the service worker
@@ -21,10 +21,10 @@ var urlsToCache = [
   '/images/'
 ];
 
-console.log('WORKER: Executing...');
+// console.log('WORKER: Executing...');
 
 self.addEventListener('install', function(event) {
-  console.log('WORKER: Installing... ')
+  // console.log('WORKER: Installing...'+gitVersion)
   /* Using event.waitUntil(p) blocks the installation process on the provided
      promise. If the promise is rejected, the service worker won't be installed.
   */
@@ -35,7 +35,7 @@ self.addEventListener('install', function(event) {
         return cache.addAll(urlsToCache);
       })
       .then(function() {
-        console.log('WORKER: Install completed');
+        // console.log('WORKER: Install completed');
       })
   );
 });
@@ -47,7 +47,7 @@ self.addEventListener('install', function(event) {
 */
 
 self.addEventListener('fetch', function(event) {
-  console.log('WORKER: Fetch event in progress...');
+  // console.log('WORKER: Fetch event in progress...');
   event.respondWith(
     caches.match(event.request)
       .then(function(response) {
@@ -77,7 +77,7 @@ self.addEventListener('fetch', function(event) {
             */
             var responseToCache = response.clone();
 
-            console.log('WORKER: Fetch response from network.', event.request.url);
+            // console.log('WORKER: Fetch response from network.', event.request.url);
 
             caches.open(pupil_docs_cache)
               .then(function(cache) {
@@ -91,12 +91,16 @@ self.addEventListener('fetch', function(event) {
     );
 });
 
-/*update
-
+/* If there is even a byte's difference in the service worker file compared
+   to what it currently has, the browser considers it new. At this point the old service
+   worker is still controlling the current pages so the new service worker will
+   be installed and enter a waiting state. When the currently open pages of your
+   site are closed, the old service worker will be killed and the new service worker
+   will take control.
 */
 self.addEventListener('activate', function(event) {
 
-  console.log('WORKER: Activate event in progress...');
+  // console.log('WORKER: Activate event in progress...');
 
   var cacheWhitelist = [pupil_docs_cache];
 
@@ -114,6 +118,7 @@ self.addEventListener('activate', function(event) {
               /* Return a promise that's fulfilled
                  when each outdated cache is deleted.
               */
+              // console.log('WORKER: Outdated cache deleted');
               return caches.delete(cacheName);
             }
           })
