@@ -4,8 +4,8 @@
    allowing you to remove outdated cache entries during the update.
 */
 
-var gitVersion = '6cf9157';
-var pupil_docs_cache = 'pupil-docs-cache' + '-#' + gitVersion;
+var gitVersion = '2db4ada';
+var pupil_docs_cache = gitVersion+"::docs-cache";
 
 /* These resources will be downloaded and cached by the service worker
    during the installation process. If any resource fails to be downloaded,
