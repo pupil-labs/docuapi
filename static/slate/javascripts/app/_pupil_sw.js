@@ -34,9 +34,9 @@ self.addEventListener('install', function(event) {
         // console.log('Opened cache');
         return cache.addAll(urlsToCache);
       })
-      .then(function() {
+      // .then(function() {
         // console.log('WORKER: Install completed');
-      })
+      // })
   );
 });
 
