@@ -38,6 +38,7 @@ $aside-bg: #eeeeee !default;
 $aside-notice-border: #90caf9 !default;
 $aside-warning-border: #ef5350 !default;
 $aside-success-border: #9ccc65 !default;
+$aside-faq-border: #37474F !default;
 $search-notice-bg: #c97a7e !default;
 $search-bg: #ccc !default;
 $nav-subheader-bg: #E0E0E0 !default;
@@ -115,6 +116,6 @@ $header-height: 50px;
 // These settings are probably best left alone.
 
 %break-words {
-    word-break: break-all;
+    word-break: break-word;
     hyphens: auto;
 }
