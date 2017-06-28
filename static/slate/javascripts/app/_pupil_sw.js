@@ -1,3 +1,5 @@
+'use-strict';
+
 /* A version number is useful when updating the worker logic,
    allowing you to remove outdated cache entries during the update.
 */
@@ -9,17 +11,17 @@ var pupil_docs_cache = gitVersion+"::docs-cache";
    during the installation process. If any resource fails to be downloaded,
    then the service worker won't be installed either.
 */
-var urlsToCache = [
-  // '/'
+
+var slateCache = [
   '/slate/stylesheets/screen.min.css',
   '/slate/javascripts/all.min.js',
   '/slate/javascripts/plyr.min.js',
-  '/slate/javascripts/yt-lazyload.min.js',
-  '/videos/',
-  '/images/'
+  '/slate/javascripts/yt-lazyload.min.js'
 ];
 
-// console.log('WORKER: Executing...');
+var allCache = allCache.concat(slateCache);
+
+console.log('WORKER: Executing...');
 
 self.addEventListener('install', function(event) {
   // console.log('WORKER: Installing...'+gitVersion)
@@ -29,12 +31,13 @@ self.addEventListener('install', function(event) {
   event.waitUntil(
     caches.open(pupil_docs_cache)
       .then(function(cache) {
-        // console.log('Opened cache');
-        return cache.addAll(urlsToCache);
+        console.log('Opened cache');
+        return cache.addAll(allCache);
+        console.log(allCache);
       })
-      // .then(function() {
-        // console.log('WORKER: Install completed');
-      // })
+      .then(function() {
+        console.log('WORKER: Install completed');
+      })
   );
 });
 
