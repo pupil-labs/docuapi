@@ -1,13 +1,58 @@
-<script>
-if ('serviceWorker' in navigator) {
-  window.addEventListener('load', function() {
-    navigator.serviceWorker.register('/pupil_sw.min.js').then(function(registration) {
-      // Registration was successful
-      // console.log('ServiceWorker registration successful with scope: ', registration.scope);
-    }, function(err) {
-      // registration failed :(
-      console.log('ServiceWorker registration failed: ', err);
-    });
-  });
-}
-</script>
+{{ $elem := .Site.Language }}
+	{{ if eq $elem.Weight 1 }}
+		<script>
+		if ('serviceWorker' in navigator) {
+		  window.addEventListener('load', function() {
+		    navigator.serviceWorker.register('/pupil_sw_{{ $elem.Lang }}.min.js').then(function(registration) {
+		      // Registration was successful
+		      // console.log('ServiceWorker registration successful with scope: ', registration.scope);
+		    }, function(err) {
+		      // registration failed :(
+		      console.log('ServiceWorker registration failed: ', err);
+		    });
+		  });
+		}
+		</script>
+	{{ else if eq $elem.Weight 2 }}
+		<script>
+		if ('serviceWorker' in navigator) {
+		  window.addEventListener('load', function() {
+		    navigator.serviceWorker.register('{{ $elem.Lang }}/pupil_sw_{{ $elem.Lang }}.min.js').then(function(registration) {
+		      // Registration was successful
+		      // console.log('ServiceWorker registration successful with scope: ', registration.scope);
+		    }, function(err) {
+		      // registration failed :(
+		      console.log('ServiceWorker registration failed: ', err);
+		    });
+		  });
+		}
+		</script>
+	{{ else if eq $elem.Weight 3 }}
+		<script>
+		if ('serviceWorker' in navigator) {
+		  window.addEventListener('load', function() {
+		    navigator.serviceWorker.register('{{ $elem.Lang }}/pupil_sw_{{ $elem.Lang }}.min.js').then(function(registration) {
+		      // Registration was successful
+		      // console.log('ServiceWorker registration successful with scope: ', registration.scope);
+		    }, function(err) {
+		      // registration failed :(
+		      console.log('ServiceWorker registration failed: ', err);
+		    });
+		  });
+		}
+		</script>
+	{{ else if eq $elem.Weight 4 }}
+		<script>
+		if ('serviceWorker' in navigator) {
+		  window.addEventListener('load', function() {
+		    navigator.serviceWorker.register('{{ $elem.Lang }}/pupil_sw_{{ $elem.Lang }}.min.js').then(function(registration) {
+		      // Registration was successful
+		      // console.log('ServiceWorker registration successful with scope: ', registration.scope);
+		    }, function(err) {
+		      // registration failed :(
+		      console.log('ServiceWorker registration failed: ', err);
+		    });
+		  });
+		}
+		</script>
+{{ end }}
