@@ -17,11 +17,11 @@ var slateCache = [
   '/slate/javascripts/yt-lazyload.min.js'
 ];
 
-var gulpCache = #v@cache@
+var gulpCache = '#v@cache@';
 
-var allCache = slateCache.concat(allCache);
+var allCache = gulpCache.concat(slateCache);
 
-console.log('WORKER: Executing...');
+// console.log('WORKER: Executing...');
 self.addEventListener('install', function(event) {
   // console.log('WORKER: Installing...'+gitVersion)
   /* Using event.waitUntil(p) blocks the installation process on the provided
@@ -30,12 +30,11 @@ self.addEventListener('install', function(event) {
   event.waitUntil(
     caches.open(pupil_docs_cache)
       .then(function(cache) {
-        console.log('Opened cache');
+        // console.log('Opened cache');
         return cache.addAll(allCache);
-        console.log(allCache);
       })
       .then(function() {
-        console.log('WORKER: Install completed');
+        // console.log('WORKER: Install completed');
       })
   );
 });
