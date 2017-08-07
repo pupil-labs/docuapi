@@ -8,6 +8,8 @@
 @import 'media';
 @import 'fonts';
 @import 'monokai';
+@import 'lazyload';
+@import 'plyr';
 
 /*
 Copyright 2008-2013 Concur Technologies, Inc.
@@ -25,129 +27,384 @@ License for the specific language governing permissions and limitations
 under the License.
 */
 
-$print-color: #999;
-$print-color-light: #ccc;
-$print-font-size: 12px;
+////////////////////////////////////////////////////////////////////////////////
+// GENERAL STUFF
+////////////////////////////////////////////////////////////////////////////////
 
-body {
+html, body {
+  color: $main-text;
+  padding: 0;
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   @extend %default-font;
+  background-color: $main-bg;
+  height: 100%;
+  -webkit-text-size-adjust: none; /* Never autoresize text */
+  overflow: visible;
 }
+
+////////////////////////////////////////////////////////////////////////////////
+// TABLE OF CONTENTS
+////////////////////////////////////////////////////////////////////////////////
 
 .tocify, .toc-footer, .lang-selector, .search, #nav-button {
   display: none;
 }
 
-.tocify-wrapper>img {
-  margin: 0 auto;
-  display: block;
+////////////////////////////////////////////////////////////////////////////////
+// PAGE LAYOUT AND CODE SAMPLE BACKGROUND
+////////////////////////////////////////////////////////////////////////////////
+
+.page-wrapper {
+  position: relative;
+  background-color: $main-bg;
+  min-height: 100%;
+  top: $header-height;
+  padding-bottom: 1px; // prevent margin overflow
 }
 
+////////////////////////////////////////////////////////////////////////////////
+// CONTENT STYLES
+////////////////////////////////////////////////////////////////////////////////
+// This is all the stuff with the light background in the left half of the page
+
 .content {
-  font-size: 12px;
+  position: relative;
+  z-index: 1;
+  max-width: $max-content-width;
+  overflow: visible;
 
-  pre, code {
-    @extend %code-font;
-    @extend %break-words;
-    border: 1px solid $print-color;
-    border-radius: 5px;
-    font-size: 0.8em;
+  &>h1, &>h2, &>h3, &>h4, &>h5, &>h6, &>p, &>table, &>ul, &>ol, &>aside, &>dl {
+    margin-right: $examples-width;
+    padding: 0 $main-padding;
+    box-sizing: border-box;
+    display: block;
+    overflow: visible;
+
+    @extend %left-col;
   }
 
-  pre {
-    code {
-      border: 0;
-    }
+   %left-col {
+       margin-right: 0;
+      margin-left: 0;
+     }
+ 
+    %right-col + %left-col {
+    margin-top: $main-padding;
+   }
+
+  &>ul, &>ol {
+    padding-left: $main-padding + 15px;
+    page-break-before: avoid;
+    display: inline-block;
   }
 
-  pre {
-    padding: 1.3em;
-  }
-
-  code {
-    padding: 0.2em;
-  }
-
-  table {
-    border: 1px solid $print-color;
-    tr {
-      border-bottom: 1px solid $print-color;
-    }
-    td,th {
-      padding: 0.7em;
-    }
+  div {
+    display: block;
   }
 
   p {
-    line-height: 1.5;
-  }
-
-  a {
-    text-decoration: none;
-    color: #000;
+    page-break-inside: avoid;
   }
 
   h1 {
     @extend %header-font;
-    font-size: 2.5em;
+    font-size: $h1-size;
     padding-top: 0.5em;
     padding-bottom: 0.5em;
-    margin-top: 1em;
-    margin-bottom: $h1-margin-bottom;
-    border: 2px solid $print-color-light;
-    border-width: 2px 0;
-    text-align: center;
+    color: #ccc;
+    background: #444;
+    margin-bottom: 1.5em;
   }
 
   h2 {
     @extend %header-font;
-    font-size: 1.8em;
-    margin-top: 2em;
-    border-top: 2px solid $print-color-light;
-    padding-top: 0.8em;
+    font-size: $h2-size;
+    margin-top: 0em;
+    margin-bottom: 0em;
+    padding-top: 1.4em; 
+    padding-bottom: 1em;
   }
 
-  h1+h2, h1+div+h2 {
-    border-top: none;
-    padding-top: 0;
+  h3 {
+    @extend %header-font;
+    font-size: $h3-size;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-top: 1.2em;
+    padding-bottom: .7em;
+  }
+
+  h4, h5, h6 {
+    @extend %header-font;
+    font-size: 15px;
+    margin-top: 2.5em;
+    margin-bottom: 0.8em;
+  }
+
+  h4, h5, h6 {
+    font-size: 1.2em;
+  }
+
+  &>h1,
+  &>h2,
+  &>h3,
+  &>h4,
+  &>h5,
+  &>h6 {
+    page-break-before: avoid;
+    page-break-after: avoid;
+  }
+
+  hr {
+    margin: 2em 0;
+    border-top: 2px solid $examples-bg;
+    border-bottom: 2px solid $main-bg;
+  }
+
+  table {
+    margin-bottom: 1em;
+    overflow: auto;
+    th,td {
+      text-align: left;
+      vertical-align: top;
+      line-height: 1.6;
+    }
+
+    th {
+      padding: 5px 10px;
+      border-bottom: 1px solid #ccc;
+      vertical-align: bottom;
+    }
+
+    td {
+      padding: 10px;
+    }
+
+    tr:last-child {
+      border-bottom: 1px solid #ccc;
+    }
+
+    tr:nth-child(odd)>td {
+      background-color: lighten($main-bg,4.2%);
+    }
+
+    tr:nth-child(even)>td {
+      background-color: lighten($main-bg,2.4%);
+    }
+  }
+
+  dt {
+    font-weight: bold;
+  }
+
+  dd {
+    margin-left: 15px;
+  }
+
+  p, li, dt, dd {
+    line-height: 1.6;
     margin-top: 0;
   }
 
-  h3, h4 {
-    @extend %header-font;
-    font-size: 0.8em;
-    margin-top: 1.5em;
-    margin-bottom: 0.8em;
-    text-transform: uppercase;
+  li {
+    word-break: break-word;
+    page-break-inside: avoid;
   }
 
-  h5, h6 {
-    text-transform: uppercase;
+  img {
+    max-width: 100%;
+    page-break-inside: avoid;
+  }
+
+  code {
+    background-color: rgba(0,0,0,0.05);
+    padding: 3px;
+    border-radius: 3px;
+    @extend %break-words;
+    @extend %code-font;
+  }
+
+  pre>code {
+    color: #f8f8f2;
+    background-color: transparent;
+    padding: 0;
   }
 
   aside {
-    padding: 1em;
-    border: 1px solid $print-color-light;
-    border-radius: 5px;
+    padding-top: 1em;
+    padding-bottom: 1em;
     margin-top: 1.5em;
     margin-bottom: 1.5em;
+    background: $aside-bg;
     line-height: 1.6;
-  }
+    color: $aside-text;
+    margin-left: $main-padding;
+    page-break-before: avoid;
+    display: block;
 
-  aside:before {
-    vertical-align: middle;
-    padding-right: 0.5em;
-    font-size: 14px;
+    &.notice {
+      border-left:10px solid $aside-notice-border;
+    }
+    &.warning {
+      border-left:10px solid $aside-warning-border;
+    }
+    &.success {
+      border-left:10px solid $aside-success-border;
+    }
+    &.faq {
+      border-left:10px solid $aside-faq-border;
+    }
+
   }
 
   aside.notice:before {
-    @extend %icon-info-sign;
+    @extend %icon-info;
+    color: $aside-notice-border;
   }
 
   aside.warning:before {
-    @extend %icon-exclamation-sign;
+    @extend %icon-error;
+    color: $aside-warning-border;
   }
 
   aside.success:before {
-    @extend %icon-ok-sign;
+    @extend %icon-check-circle;
+    color: $aside-success-border;
   }
+
+  aside.faq:before {
+    @extend %icon-help;
+    color: $aside-faq-border;
+  }
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// CODE SAMPLE STYLES
+////////////////////////////////////////////////////////////////////////////////
+// This is all the stuff that appears in the right half of the page
+
+.content {
+  pre, blockquote {
+    float: none;
+    overflow: visible;
+    page-break-inside: avoid;
+
+    @extend %right-col;
+
+    &>p { margin: 0; }
+
+    a {
+      color: #fff;
+      text-decoration: none;
+      border-bottom: dashed 1px #ccc;
+    }
+  }
+
+  pre {
+    @extend %code-font;
+    padding: 2em $main-padding;
+    background-color: $code-bg;
+    margin-bottom: 10px;
+  }
+
+  blockquote {
+    &>p {
+      padding: 0 10px 13px 10px;
+      color: #333;
+    }
+    &>figure {
+      margin: auto;
+      padding: 0 0 20px 0;
+    }
+  }
+
+  table {
+    figure {
+      margin: 0;
+      padding: 10px 13px 10px;
+    }
+  }
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// RESPONSIVE DESIGN
+////////////////////////////////////////////////////////////////////////////////
+// These are the styles for phones and tablets
+// There are also a couple styles disperesed
+
+h2,h3 {
+  .anchor,
+  .github-edit {
+  color: rgba(0,0,0,0);
+ }
+}
+
+
+h1 {
+  .anchor,
+  .github-edit {
+  color: rgba(0,0,0,0);
+  }
+}
+
+.plyr__play-large {
+  color: rgba(0,0,0,0);
+}
+
+.img-small {
+  filter: blur(0);
+  transform: scale(1);
+}
+
+.img-large {
+  opacity: 1;
+}
+
+.plyr--video .plyr__controls {
+  color: rgba(0,0,0,0);;
+}
+
+.youtube .play-button {
+  background-color: rgba(0,0,0,0);
+  box-shadow: rgba(0,0,0,0);
+}
+
+.youtube .play-button:before {
+  border-style: none;
+  border-width: 0;
+  border-color: rgba(0,0,0,0);
+}
+
+@media (max-width: $phone-width) {
+  #menu-button {
+    display: none;
+  }
+}
+
+#header {
+  position: absolute;
+}
+
+.lazy-img {
+  overflow: visible;
+}
+
+%left-col {
+  margin-right: 0;
+  margin-left: 0;
+  }
+
+%right-col {
+  width: auto;
+  float: none;
+ }
+
+%right-col + %left-col {
+  margin-top: $main-padding;
+}
+
+.content > p > a {
+  line-height: 0;
 }
