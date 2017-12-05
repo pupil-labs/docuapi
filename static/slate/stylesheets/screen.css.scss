@@ -599,7 +599,15 @@ html, body {
 
     @extend %right-col;
 
-    &>p { margin: 0; }
+    &>p {
+      margin: 0;
+
+      a {
+        color:#00acc1;
+        text-decoration: none;
+        border-bottom: none;
+      }
+    }
 
     a {
       color: #fff;
@@ -695,6 +703,13 @@ html, body {
       font-size: 1.5em;
       margin-top: 1em;
     }
+    blockquote>p{
+
+      &#footnote {
+        margin: 0 30px;
+        padding: 0 30px;
+      }
+    }
   }
   .tocify-wrapper {
     .tocify-inner {
@@ -704,6 +719,7 @@ html, body {
   .feature-full {
     width: 100%
   }
+
 }
 
 @media (max-width: $phone-width) {
