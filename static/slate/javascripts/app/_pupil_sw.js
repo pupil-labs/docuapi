@@ -1,28 +1,27 @@
-'use-strict'
+'use-strict';
 
 /* A version number is useful when updating the worker logic,
    allowing you to remove outdated cache entries during the update.
 */
-
-var gitVersion = 'c63de0b';
+var gitVersion = 'b4fab47';
 var pupil_docs_cache = gitVersion+"::docs-cache";
 
 /* These resources will be downloaded and cached by the service worker
    during the installation process. If any resource fails to be downloaded,
    then the service worker won't be installed either.
 */
-var urlsToCache = [
-  // '/'
+var slateCache = [
   '/slate/stylesheets/screen.min.css',
   '/slate/javascripts/all.min.js',
   '/slate/javascripts/plyr.min.js',
-  '/slate/javascripts/yt-lazyload.min.js',
-  '/videos/',
-  '/images/'
+  '/slate/javascripts/yt-lazyload.min.js'
 ];
 
-// console.log('WORKER: Executing...');
+var gulpCache = '#v@cache@';
 
+var allCache = gulpCache.concat(slateCache);
+
+// console.log('WORKER: Executing...');
 self.addEventListener('install', function(event) {
   // console.log('WORKER: Installing...'+gitVersion)
   /* Using event.waitUntil(p) blocks the installation process on the provided
@@ -32,20 +31,18 @@ self.addEventListener('install', function(event) {
     caches.open(pupil_docs_cache)
       .then(function(cache) {
         // console.log('Opened cache');
-        return cache.addAll(urlsToCache);
+        return cache.addAll(allCache);
       })
-      // .then(function() {
+      .then(function() {
         // console.log('WORKER: Install completed');
-      // })
+      })
   );
 });
-
 /* The fetch event fires whenever a page controlled by this service worker requests
    a resource. This isn't limited to `fetch` or even XMLHttpRequest. Instead, it
    comprehends even the request for the HTML page on first load, as well as JS and
    CSS resources, fonts, any images, etc.
 */
-
 self.addEventListener('fetch', function(event) {
   // console.log('WORKER: Fetch event in progress...');
   event.respondWith(
@@ -55,7 +52,6 @@ self.addEventListener('fetch', function(event) {
         if (response) {
           return response;
         }
-
         /*  IMPORTANT: Clone the request. A request is a stream and
             can only be consumed once. Since we are consuming this
             once by cache and once by the browser for fetch, we need
@@ -69,16 +65,13 @@ self.addEventListener('fetch', function(event) {
             if(!response || response.status !== 200 || response.type !== 'basic') {
               return response;
             }
-
             /*  IMPORTANT: Clone the response. A response is a stream
                 and because we want the browser to consume the response
                 as well as the cache consuming the response, we need
                 to clone it so we have two streams.
             */
             var responseToCache = response.clone();
-
             // console.log('WORKER: Fetch response from network.', event.request.url);
-
             caches.open(pupil_docs_cache)
               .then(function(cache) {
                 cache.put(event.request, responseToCache);
@@ -90,7 +83,6 @@ self.addEventListener('fetch', function(event) {
       })
     );
 });
-
 /* If there is even a byte's difference in the service worker file compared
    to what it currently has, the browser considers it new. At this point the old service
    worker is still controlling the current pages so the new service worker will
@@ -99,11 +91,8 @@ self.addEventListener('fetch', function(event) {
    will take control.
 */
 self.addEventListener('activate', function(event) {
-
   // console.log('WORKER: Activate event in progress...');
-
   var cacheWhitelist = [pupil_docs_cache];
-
   event.waitUntil(
     caches
       /* This method returns a promise which will resolve to an array of available
