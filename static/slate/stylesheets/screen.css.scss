@@ -531,6 +531,7 @@ html, body {
     line-height: 1.6;
     color: $aside-text;
     margin-left: $main-padding;
+    word-wrap: break-word;
 
     &.notice {
       border-left:10px solid $aside-notice-border;
@@ -656,6 +657,18 @@ html, body {
 // There are also a couple styles disperesed
 
 @media (max-width: $phone-width) {
+  .justify-center {
+    justify-content: center;
+  }
+
+  .main-header-logo {
+    padding-left: unset;
+
+    > nav {
+      margin: auto;
+    }
+  }
+
   .tocify-wrapper {
     left: -$nav-width;
 
@@ -666,7 +679,7 @@ html, body {
 
   .page-wrapper {
     margin-left: 0;
-    top: 44px;
+    top: 64px;
   }
 
   #nav-button {
@@ -680,11 +693,6 @@ html, body {
 
   .main-header-menu-button {
     padding: 0;
-  }
-
-  .main-header-logo {
-    top: 2px;
-    font-size: 1.85em;
   }
 
   .logotype {
@@ -713,7 +721,7 @@ html, body {
   }
   .tocify-wrapper {
     .tocify-inner {
-      padding-top: 4.5em;
+      padding-top: 64px;
     }
   }
   .feature-full {
