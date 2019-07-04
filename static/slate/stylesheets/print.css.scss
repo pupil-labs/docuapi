@@ -244,6 +244,7 @@ html, body {
     line-height: 1.6;
     color: $aside-text;
     margin-left: $main-padding;
+    word-wrap: break-word;
 
     &.notice {
       border-left:10px solid $aside-notice-border;
